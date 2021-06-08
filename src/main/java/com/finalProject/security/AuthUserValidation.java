@@ -1,4 +1,4 @@
 package com.finalProject.security;
 
-public interface UserValidation {
+public interface AuthUserValidation {
 }

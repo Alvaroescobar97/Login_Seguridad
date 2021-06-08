@@ -62,6 +62,4 @@ public class PBKDF2Algorithm {
             return hex;
     }
 
-
-
 }
