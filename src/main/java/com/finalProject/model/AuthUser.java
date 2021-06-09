@@ -12,13 +12,13 @@ public class AuthUser {
 
     @Id
     private String id;
-    @NotBlank(groups = AuthUserValidation.class, message = "El nombre no debe estar vacío.")
+    //@NotBlank(groups = AuthUserValidation.class, message = "El nombre no debe estar vacío.")
     private String nombre;
-    @NotBlank(groups = AuthUserValidation.class, message = "El correo no debe estar vacío.")
+    //@NotBlank(groups = AuthUserValidation.class, message = "El correo no debe estar vacío.")
     private String correo;
-    @NotBlank(groups = AuthUserValidation.class, message = "La contraseña no debe estar vacía.")
+    //@NotBlank(groups = AuthUserValidation.class, message = "La contraseña no debe estar vacía.")
     private String password;
-    @NotNull(groups = AuthUserValidation.class, message = "El tipo no debe estar vacío.")
+    //@NotNull(groups = AuthUserValidation.class, message = "El tipo no debe estar vacío.")
     private Type type;
 
 

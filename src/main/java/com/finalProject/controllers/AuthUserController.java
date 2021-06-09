@@ -21,14 +21,12 @@ public class AuthUserController {
     public AuthUserService authUserService;
 
     @PostMapping("/add")
-    public ResponseEntity<AuthUser> createUser(@Validated(AuthUserValidation.class) @RequestBody AuthUser authUser) {
+    public ResponseEntity<AuthUser> createUser(@RequestBody AuthUser authUser) {
         AuthUser authUserSaved = null;
         try {
             authUserSaved = authUserService.createUser(authUser);
             return new ResponseEntity<AuthUser>(authUserSaved, HttpStatus.OK);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
         return new ResponseEntity<AuthUser>(authUserSaved, HttpStatus.BAD_REQUEST);
@@ -57,15 +55,13 @@ public class AuthUserController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<AuthUser> updateUser(@Validated(AuthUserValidation.class) @RequestBody AuthUser authUser) {
+    public ResponseEntity<AuthUser> updateUser(@RequestBody AuthUser authUser) {
         AuthUser authUserUpdated = null;
         try {
             authUserUpdated = authUserService.updateUser(authUser);
             if (authUserUpdated != null)
                 return new ResponseEntity<AuthUser>(authUserUpdated, HttpStatus.OK);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
         return new ResponseEntity<AuthUser>(authUserUpdated, HttpStatus.NOT_FOUND);
