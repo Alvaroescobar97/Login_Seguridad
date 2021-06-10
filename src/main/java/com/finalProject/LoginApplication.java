@@ -12,19 +12,37 @@ import com.finalProject.model.Type;
 import com.finalProject.repository.AuthUserRepository;
 import com.finalProject.services.AuthUserService;
 
+/**
+ * Entidad que representa el lanzador de la aplicación
+ */
 @SpringBootApplication
 public class LoginApplication implements CommandLineRunner {
 
+	/**
+	 * Es el main de la aplicación
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(LoginApplication.class, args);
 	}
 
+	/**
+	 * Injecta el repositorio de un usuario
+	 */
 	@Autowired
 	private AuthUserRepository userReposotory;
 
+	/**
+     * Injecta los servicios para un usuario
+	 */
 	@Autowired
 	private AuthUserService userService;
 
+	/**
+	 * Permite injectar usuarios de pruebas
+	 * @param args
+	 * @throws Exception
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 
